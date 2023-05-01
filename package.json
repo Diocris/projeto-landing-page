@@ -1,0 +1,18 @@
+{
+  "name": "projeto-landing-page",
+  "version": "1.0.0",
+  "description": "Nesse projeto, nosso objetivo é criar uma **Landing Page**, ou seja, um site de **apenas uma página** cujo objetivo é atrair clientes e despertar curiosidade e interesse nos serviços e/ou produtos de uma empresa. Durante a construção desse site, serão estudados e praticados os seguintes conteúdos: * HTML * CSS \t* Flex \t* Grid * DOM",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@lottiefiles/lottie-interactivity": "^1.6.2",
+    "@lottiefiles/lottie-player": "^1.7.1",
+    "bootstrap": "^5.3.0-alpha3",
+    "jquery": "^3.6.4",
+    "lottie": "^0.0.1"
+  }
+}

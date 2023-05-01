@@ -1,0 +1,115 @@
+.first-section{
+    display: grid;
+    justify-items: center;
+}
+
+.first-sec-1content{
+    height: 30vh;
+}
+.first-sec-row{
+    margin: 40px;
+}
+.first-sec-2content{
+    height: 40vh;
+    display: grid;
+    align-content: center;
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+.first-sec-2content h2, .first-sec-2content p {
+text-align: left;
+}
+
+
+.card-item{
+    position: relative;
+    width: 147px;
+    height: 208.6px;
+    transition: 1s all;
+    z-index: 0;
+}
+
+.card-item img{
+    width: 100%;
+    height: 100%;
+}
+
+.front-face{
+    order: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: 0.2s all;
+}
+
+.back-face{
+    width: fit-content;
+    order:2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: rotateY(240deg);
+    transition: 0.8s all;   
+}
+
+.card-item:hover{
+    width: 210px;
+    height: 298px;
+}
+
+.card-item:nth-child(2){
+    order: 2;
+    translate:0px -25px;
+}
+
+.card-item:nth-child(2):hover{
+    translate:0px -50px;
+    z-index: 1;
+}
+
+.card-clicked .front-face{
+    transform: rotateY(90deg);
+}
+.card-clicked .back-face{
+    transform: rotateY(360deg);
+}
+.card-item:nth-child(1){
+    order: 0;
+    rotate:-20deg;
+}
+.card-item:nth-child(1):hover{
+    translate:-10px -20px;
+    z-index: 1;
+}
+
+.card-item:nth-child(3){
+    order: 3;
+    rotate:20deg;
+
+}
+.card-item:nth-child(3):hover{
+    translate: 10px -20px;
+    z-index: 1;
+}
+
+@media screen and (max-width: 768px) {
+    .card-item{
+        position: relative;
+        width: 25vw;
+        height: 37.5vw;
+        transition: 1s all;
+    }
+
+    .card-item:hover{
+        width: 28vw;
+        height: 41vw;
+    }
+
+    .first-sec-row{
+        margin-bottom: -20px;
+    }
+    .first-section-desktop{
+        display: none;
+    }
+}

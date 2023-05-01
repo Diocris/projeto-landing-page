@@ -1,0 +1,178 @@
+.second-section {
+    display: grid;
+    margin: 0 auto;
+    margin-top: 10vh;
+    grid-template-rows: 1fr;
+}
+
+@keyframes closeSectionEye {
+    100% {
+        clip-path: ellipse(0% 0% at 50% 50%);
+    }
+
+    0% {
+        clip-path: ellipse(100% 100% at 50% 50%);
+    }
+}
+
+.text-second-section {
+    display: inline-flex;
+}
+
+.second-row {
+    margin: 16px 0px;
+    display: grid;
+    justify-content: center;
+    justify-items: center
+}
+
+.eye-holder {
+    width: 400px;
+    height: 596px;
+    display: grid;
+    transition: all 400ms;
+    box-sizing: border-box;
+    grid-column: 1/1;
+    grid-row: 1/1;
+    position: relative;
+    z-index: 2;
+    border-radius: 20px;
+    background-image: url(/assets/card-button.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    justify-items: center;
+    align-items: end;
+    padding: 32px;
+}
+
+.eye-holder:hover {
+    border-radius: 20px;
+    border: 1px solid #131313;
+}
+
+
+.form-open-acc {
+    display: grid;
+    grid-column: 1/1;
+    grid-row: 1/1;
+
+}
+
+.form-open-acc-holder {
+    box-sizing: border-box;
+    height: 80%;
+    display: grid;
+    justify-items: center;
+
+}
+
+.form-open-acc-holder input {
+    width: 80%;
+    border: none;
+    background-color: unset;
+    border-bottom: 1px solid #ffffff;
+    outline: unset;
+    color: #E38C24;
+}
+
+.form-open-acc-holder input:focus-within {
+    border-bottom: 2px solid #ffffff;
+}
+
+.form-open-acc-holder input::placeholder {
+    color: white;
+    text-align: center;
+}
+
+.form-oppen-scroller {
+    display: grid;
+    justify-content: space-around;
+
+}
+
+.open-acc-holder {
+    width: 400px;
+    height: 596px;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    grid-column: 1/1;
+    grid-row: 1/1;
+    order: 0;
+    border: 1px solid #131313;
+    border-radius: 10px;
+    background-color: #290A5E;
+}
+
+.open-acc-actived {
+    transform: rotateY(0deg);
+}
+
+.open-acc-desactived {
+    transform: rotateY(90deg);
+}
+
+.open-acc-button {
+    background-color: unset;
+    border: none;
+    position: relative;
+    z-index: 3;
+}
+
+
+.newWhite {
+    position: relative;
+    height: 20vw;
+    width: 20vw;
+    top: 50%;
+    left: 50%;
+    background-color: white;
+    border-radius: 70% 0px 70% 0px;
+    transform: translate(-50%, -50%) rotate(45deg) rotateX(0deg) rotateY(0deg);
+    transform-origin: center;
+}
+
+@keyframes blink {
+    0% {
+        transform: translate(-50%, -50%) rotate(45deg) rotateX(0deg) rotateY(0deg);
+    }
+
+    50% {
+        transform: translate(-50%, -50%) rotate(45deg) rotateX(-90deg)rotateY(90deg);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(45deg) rotateX(0deg) rotateY(0deg);
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+    .eye-holder {
+        width: calc(400px/3*2);
+        height: calc(596px/3*2);
+        border-radius: 10px;
+        border: 1px solid #131313;
+    }
+
+    .open-acc-holder {
+        width: calc(200px/3*2);
+        height: calc(298px/3*2);
+    }
+
+}
+
+@media screen and (max-width: 420px) {
+    .eye-holder {
+        width: calc(400px/2);
+        height: calc(596px/2);
+        border-radius: 10px;
+        border: 1px solid #131313;
+    }
+
+    .open-acc-holder {
+        width: calc(400px/2);
+        height: calc(596px/2);
+    }
+
+}
