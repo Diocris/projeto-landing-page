@@ -1,0 +1,19 @@
+.bttn{
+        width: fit-content;
+        height: fit-content;
+        background-color: transparent;
+        width: fit-content;
+        padding: 8px;
+        border: 1px solid #ffffff !important;
+        border-radius: 10px !important;
+        color: white !important;
+}
+
+.button-card{
+    width: 100% !important;
+    height: fit-content !important;
+    background-color: transparent !important;
+    border-bottom: 1px solid #ffffff !important;
+    color: white !important;
+    padding: 8px;
+}
