@@ -212,15 +212,20 @@ window.addEventListener("load", () => {
     const cardDetails = document.getElementById("card-details")
     const buttonCardMobile = selectAll(".button-card-mobile")
     const cardMobile = selectAll(".card-item")
+    const frontFaceMobile = selectAll(".front-face")
+    const backFaceMobile = selectAll(".back-face")
 
     function mobileFirstSec(array) {
         for (let i = 0; i < array.length; i++) {
             array[i].addEventListener("click", () => {
+                buttonCardMobile[i].style.borderBottom = `2px solid white !important`
                 if (!cardMobile[i].classList.contains("card-clicked")) {
+                    frontFaceMobile[i].style.transition = "all 400ms"
                     for (let k = 0; k < 3; k++) {
                         cardMobile[k].classList.remove("card-clicked")
                     }
                     cardMobile[i].classList.toggle("card-clicked")
+                    backFaceMobile[i].style.transition = "all 400ms 400ms"
                 }
             })
         }
@@ -388,9 +393,12 @@ window.addEventListener("load", () => {
     const previousBttn = selectAll(".previous")
     const previousMain = select(".previous-main")
     const accButton = select(".open-acc-button")
-    
+
     previousMain.addEventListener("click", () => {
-        eyeHolder.classList.toggle("open-acc-desactived")
+        sliders[0].style.transition = "all 400ms"
+        setTimeout(() => {
+            eyeHolder.classList.toggle("open-acc-desactived")
+        }, 400);
         sliders[0].classList.toggle("open-acc-desactived")
     })
 
@@ -401,7 +409,8 @@ window.addEventListener("load", () => {
         })
     }
 
-    for (let i = 0; i < previousBttn.length; i++) {
+    for (let i = 1; i < previousBttn.length; i++) {
+
         previousBttn[i].addEventListener("click", (e) => {
             sliders[i + 1].classList.add("open-acc-desactived")
             sliders[i].classList.remove("open-acc-desactived")
@@ -409,7 +418,6 @@ window.addEventListener("load", () => {
     }
 
     function openRegisterForm() {
-
         eyeHolder.classList.toggle("open-acc-desactived")
         sliders[0].classList.toggle("open-acc-desactived")
         sliders[0].style.transition = "all 400ms 400ms"
