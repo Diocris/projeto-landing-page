@@ -276,7 +276,8 @@ p {
   width: 100%;
   height: 50%;
   align-items: center;
-  justify-items: center
+  justify-items: center;
+  padding-left: 3.5rem !important;
  }
 
 
@@ -321,6 +322,9 @@ p {
   .one{
     justify-content: center;
     padding-top: 30%;
+}
+.deck-holder{
+  padding-left: calc(var(--bs-gutter-x) * .5) !important;
 }
 }
 
