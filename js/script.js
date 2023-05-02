@@ -3,35 +3,35 @@ const selectAll = (el) => { return document.querySelectorAll(el) }
 const root = document.querySelector(":root")
 
 window.addEventListener("load", () => {
-//! Nav bar start
+    //! Nav bar start
     const navBttn = select(".nav-card-button")
-    navBttn.addEventListener("click", ()=>{
+    navBttn.addEventListener("click", () => {
         const secondSec = select(".second-section").getBoundingClientRect().top
         window.removeEventListener("scroll", animScroll)
-        window.scrollTo(0 , secondSec)
+        window.scrollTo(0, secondSec)
     })
-//! Nav bar end
+    //! Nav bar end
     const autoChange = select(".auto-change")
-    const changePhrases = ["YOU","ALL","FUTURE"]
+    const changePhrases = ["YOU", "ALL", "FUTURE"]
 
     function autoChangeFunc(num) {
         setInterval(() => {
             autoChange.innerHTML = changePhrases[0]
             setTimeout(() => {
                 autoChange.innerHTML = changePhrases[1]
-            }, num/3*1);
+            }, num / 3 * 1);
             setTimeout(() => {
                 autoChange.innerHTML = changePhrases[2]
-            }, num/3*2);
+            }, num / 3 * 2);
         }, num);
-    
-           
+
+
     }
 
     autoChangeFunc(3000)
-//! Hero start
+    //! Hero start
 
-//-- Set cards hero randomly position - start
+    //-- Set cards hero randomly position - start
 
     const heroXPositive = select(".hero").getBoundingClientRect().width
     const heroXNegative = -(select(".hero").getBoundingClientRect().width)
@@ -75,9 +75,9 @@ window.addEventListener("load", () => {
 
     //? set new POS to the cards - end
 
-//-- Set cards hero randomly position - end
+    //-- Set cards hero randomly position - end
 
-//-- Set functions to animation works - start
+    //-- Set functions to animation works - start
 
     const primaryButton = select(".primary-button")
     const windowScroll = select(".nav-bar").getBoundingClientRect().height + select(".hero").getBoundingClientRect().height
@@ -85,7 +85,7 @@ window.addEventListener("load", () => {
     const nav = select(".nav-bar")
     let navTop;
 
-//? First animation function, when button is clicked or when user does Y scroll, actives, givng the card the original/initial position, also after this first step, removes those initials functions and adds the second part functions for animation.
+    //? First animation function, when button is clicked or when user does Y scroll, actives, givng the card the original/initial position, also after this first step, removes those initials functions and adds the second part functions for animation.
 
 
     function animScroll(e) {
@@ -105,9 +105,9 @@ window.addEventListener("load", () => {
     }
 
     //
-//? first animation function - end
+    //? first animation function - end
 
-//? second animation function, after a second click or a little more scroll Y, send the ammounted deck to the first section, after a delay also guides the user window to have this section con his 100% viewport, also removing itself avoiding visual and user bugs.
+    //? second animation function, after a second click or a little more scroll Y, send the ammounted deck to the first section, after a delay also guides the user window to have this section con his 100% viewport, also removing itself avoiding visual and user bugs.
 
     function cardMove() {
         navTop = nav.getBoundingClientRect().y
@@ -119,12 +119,12 @@ window.addEventListener("load", () => {
                     spreadedCards[i].style.transform = `translate(0,700px)`
                 }
             }, 100);
-        
+
             setTimeout(() => {
                 for (let i = 0; i < spreadedCards.length; i++) {
                     spreadedCards[i].style.display = "none"
                 }
-                
+
                 window.removeEventListener("scroll", cardMove)
                 setTimeout(() => {
                     window.scrollTo(0, windowScroll)
@@ -136,46 +136,46 @@ window.addEventListener("load", () => {
         }
     }
 
-//? second function - end
-//? click anim function - start
+    //? second function - end
+    //? click anim function - start
 
-function animClick() {
-    window.removeEventListener("scroll", animScroll)
-    body.style.overflow = "hidden"
-    for (let i = 0; i < spreadedCards.length; i++) {
-    spreadedCards[i].style.transition = "all 400ms linear"
-    spreadedCards[i].style.transform = `translate(0,0)`
-    }
-
-    setTimeout(() => {
+    function animClick() {
+        window.removeEventListener("scroll", animScroll)
+        body.style.overflow = "hidden"
         for (let i = 0; i < spreadedCards.length; i++) {
-            spreadedCards[i].style.transition = `all 400ms ease-in`
-            spreadedCards[i].style.transform = `translate(0,700px)`
+            spreadedCards[i].style.transition = "all 400ms linear"
+            spreadedCards[i].style.transform = `translate(0,0)`
         }
-        body.style.overflow = "initial"
 
         setTimeout(() => {
             for (let i = 0; i < spreadedCards.length; i++) {
-    
-                       spreadedCards[i].style.display = "none"
+                spreadedCards[i].style.transition = `all 400ms ease-in`
+                spreadedCards[i].style.transform = `translate(0,1000px)`
             }
-     
-            window.scrollTo(0, windowScroll)
-        }, 800);
-    }, 600);
+            body.style.overflow = "initial"
 
-}
+            setTimeout(() => {
+                for (let i = 0; i < spreadedCards.length; i++) {
+
+                    spreadedCards[i].style.display = "none"
+                }
+
+                window.scrollTo(0, windowScroll)
+            }, 800);
+        }, 600);
+
+    }
 
     window.addEventListener("scroll", animScroll)
     primaryButton.addEventListener("click", animClick)
 
     //-- Set functions to animation works - end
 
-//! Hero end
+    //! Hero end
 
-//! First Section - Mobile and Desktop functions
+    //! First Section - Mobile and Desktop functions
 
-//-- First setting ups, its display or not the properly first section according to the user screen width.
+    //-- First setting ups, its display or not the properly first section according to the user screen width.
     const firstSection = select(".first-section")
     firstSection.style.display = "none"
     const firstSectionDesktop = select(".first-section-desktop")
@@ -193,28 +193,28 @@ function animClick() {
             firstSection.style.display = "none"
             firstSectionDesktop.style.display = "grid"
         }
-        primaryButton.addEventListener("click", ()=>{
+        primaryButton.addEventListener("click", () => {
             window.scrollTo(0, select(".text-section-1").getBoundingClientRect().top)
         })
     }
 
     match(screenWidth)
 
-//-- first settings - end
+    //-- first settings - end
 
-//-- First desktop -- MOBILE start
+    //-- First desktop -- MOBILE start
 
-//? First section mobile function to change the text according to the item who is beeing hovered.
-  
+    //? First section mobile function to change the text according to the item who is beeing hovered.
 
-        const cards = document.getElementsByClassName('card-item')
-        const cardName = document.getElementById("card-name")
-        const cardDetails = document.getElementById("card-details")
-        const buttonCardMobile = selectAll(".button-card-mobile")
-        const cardMobile = selectAll(".card-item")
+
+    const cards = document.getElementsByClassName('card-item')
+    const cardName = document.getElementById("card-name")
+    const cardDetails = document.getElementById("card-details")
+    const buttonCardMobile = selectAll(".button-card-mobile")
+    const cardMobile = selectAll(".card-item")
 
     function mobileFirstSec(array) {
-        for (let i = 0; i <array.length; i++) {
+        for (let i = 0; i < array.length; i++) {
             array[i].addEventListener("click", () => {
                 if (!cardMobile[i].classList.contains("card-clicked")) {
                     for (let k = 0; k < 3; k++) {
@@ -236,9 +236,9 @@ function animClick() {
     mobileFirstSec(buttonCardMobile)
     mobileFirstSec(cards)
 
-//-- First desktop -- MOBILE end
+    //-- First desktop -- MOBILE end
 
-//-- First desktop -- DESKTOP start
+    //-- First desktop -- DESKTOP start
 
     //create all consts that will be used.
     const cardDeck = Array.from(selectAll(".card-deck"))
@@ -260,8 +260,8 @@ function animClick() {
     //creates a new css property that will define where the cards are supposed to go when activateds
     root.style.setProperty(`--pos--card`, `0 ,${holderHalfHeight}`)
 
-    
-        
+
+
     //initalize a fot looping for buutons
     for (let i = 0; i < buttonsCard.length; i++) {
         //each button click initiates the functions
@@ -329,7 +329,7 @@ function animClick() {
         })
 
     }
-    
+
 
 
     const buttons = Array.from(selectAll(".button-card"))
@@ -355,94 +355,96 @@ function animClick() {
     ]
 
     function textChange() {
-        
-    for (let i = 0; i < buttons.length; i++) {
 
-        buttons[i].addEventListener("click", () => {
+        for (let i = 0; i < buttons.length; i++) {
 
-            h.innerText = headings[i]
-            p.innerText = paragraphs[i]
+            buttons[i].addEventListener("click", () => {
+
+                h.innerText = headings[i]
+                p.innerText = paragraphs[i]
+            }
+            )
         }
-        )
     }
-   }
-
-   
-
-   textChange()
 
 
 
-
-//-- First desktop -- DESKTOP end
-
-//! First Section - Mobile and Desktop functions end
+    textChange()
 
 
-//! Second Section - Start
+
+
+    //-- First desktop -- DESKTOP end
+
+    //! First Section - Mobile and Desktop functions end
+
+
+    //! Second Section - Start
     const eyeHolder = select(".eye-holder")
-   const sliders = selectAll(".open-acc-holder")
-   const nextBttn = selectAll(".next")
-   const nextFake = select(".next-fake")
-   const openSign = select("#open-sign")
-   const previousBttn = selectAll(".previous")
-   const previousMain = select(".previous-main")
-   const accButton = select(".open-acc-button")
-
-
-   previousMain.addEventListener("click", ()=>{
+    const sliders = selectAll(".open-acc-holder")
+    const nextBttn = selectAll(".next")
+    const nextFake = select(".next-fake")
+    const openSign = select("#open-sign")
+    const previousBttn = selectAll(".previous")
+    const previousMain = select(".previous-main")
+    const accButton = select(".open-acc-button")
+    
+    previousMain.addEventListener("click", () => {
         eyeHolder.classList.toggle("open-acc-desactived")
-        sliders[0].classList.toggle("open-acc-desactived")   
-   })
+        sliders[0].classList.toggle("open-acc-desactived")
+    })
 
-   for (let i = 0; i < nextBttn.length -1 ; i++) {
-    nextBttn[i].addEventListener("click", ()=>{
-        sliders[i].classList.add("open-acc-desactived")
-        sliders[i+1].classList.remove("open-acc-desactived")
-    } )
-   }
-
-   for (let i = 0; i < previousBttn.length; i++) {
-    previousBttn[i].addEventListener("click", (e)=>{
-        sliders[i+1].classList.add("open-acc-desactived")
-        sliders[i].classList.remove("open-acc-desactived")
-    } )
-   }
-function openRegisterForm() {
-    
-    eyeHolder.classList.toggle("open-acc-desactived")
-    sliders[0].classList.toggle("open-acc-desactived")
-    eyeHolder.classList.add("open-acc-desactived")
-}
-
-   accButton.addEventListener("click", openRegisterForm)
-   
-   let countClickFake = 0
-   nextFake.addEventListener("click", ()=>{
-    countClickFake += 1  
-    checkValue = openSign.value.toLowerCase()
-    if(countClickFake === 0 && checkValue !== "gemini" || checkValue !== "gemeos" || checkValue !== "gêmeos"){
-        openSign.value = "" 
-        openSign.placeholder = "Not a gemini"
+    for (let i = 0; i < nextBttn.length - 1; i++) {
+        nextBttn[i].addEventListener("click", () => {
+            sliders[i].classList.add("open-acc-desactived")
+            sliders[i + 1].classList.remove("open-acc-desactived")
+        })
     }
-    if (countClickFake >= 2 || checkValue === "gemini" || checkValue === "gemeos" || checkValue === "gêmeos"){
-        alert("I'm sorry to say, the universe has other plans for you. This form is faker than a politician promise, my tarot cards are saying 'not today, my friend.' Even if you're a lovely Gemini, I'm afraid I can't work my magic on this one. ")
-        
-    
+
+    for (let i = 0; i < previousBttn.length; i++) {
+        previousBttn[i].addEventListener("click", (e) => {
+            sliders[i + 1].classList.add("open-acc-desactived")
+            sliders[i].classList.remove("open-acc-desactived")
+        })
     }
-   })
 
-   select(".form-button").addEventListener("click", ()=>{
-    alert("Well, I'm pretty sure you don't need the cards to see that it's just a project with no backend involved. So hopefully, the cards will tell me that you tried to contact me.")
-   })
+    function openRegisterForm() {
 
-// //    }
-  
-  
+        eyeHolder.classList.toggle("open-acc-desactived")
+        sliders[0].classList.toggle("open-acc-desactived")
+        sliders[0].style.transition = "all 400ms 400ms"
+        eyeHolder.classList.add("open-acc-desactived")
+        setTimeout(() => {
+            sliders[0].style.transition = "unset"
+        }, 800);
+    }
 
-  
-  
-//! Second Section - End
+    accButton.addEventListener("click", openRegisterForm)
+
+    let countClickFake = 0
+    nextFake.addEventListener("click", () => {
+        countClickFake += 1
+        checkValue = openSign.value.toLowerCase()
+        if (countClickFake === 0 && checkValue !== "gemini" || checkValue !== "gemeos" || checkValue !== "gêmeos") {
+            openSign.value = ""
+            openSign.placeholder = "Not a gemini"
+        }
+        if (countClickFake >= 2 || checkValue === "gemini" || checkValue === "gemeos" || checkValue === "gêmeos") {
+            alert("I'm sorry to say, the universe has other plans for you. This form is faker than a politician promise, my tarot cards are saying 'not today, my friend.' Even if you're a lovely Gemini, I'm afraid I can't work my magic on this one. ")
+        }
+    })
+
+    select(".form-button").addEventListener("click", () => {
+        alert("Well, I'm pretty sure you don't need the cards to see that it's just a project with no backend involved. So hopefully, the cards will tell me that you tried to contact me.")
+    })
+
+    // //    }
+
+
+
+
+
+    //! Second Section - End
 })
 
 

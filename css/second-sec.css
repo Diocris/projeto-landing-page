@@ -42,7 +42,7 @@
     background-size: contain;
     justify-items: center;
     align-items: end;
-    padding: 32px;
+    padding: 3rem;
     justify-content: center;
     align-items: end;
 }
@@ -105,11 +105,9 @@
     border-radius: 10px;
     background-color: #290A5E;
 }
-
 .open-acc-actived {
     transform: rotateY(0deg);
 }
-
 .open-acc-desactived {
     transform: rotateY(90deg);
 }
@@ -120,6 +118,7 @@
     position: relative;
     z-index: 3;
     transform-origin: center;
+    min-width: 200px !important;
 }
 
 
@@ -156,6 +155,7 @@
         height: calc(596px/3*2);
         border-radius: 10px;
         border: 1px solid #131313;
+        padding: 2rem;
     }
 
     .open-acc-holder {
@@ -163,8 +163,8 @@
         height: calc(298px/3*2);
     }
     .open-acc-button {
-        transform:scale(0.9);
-        -webkit-transform: scale(0.9);
+        transform:scale(0.75);
+        -webkit-transform: scale(0.75);
       }
   }
 
@@ -175,6 +175,7 @@
         height: calc(596px/2);
         border-radius: 10px;
         border: 1px solid #131313;
+        padding: 1rem;
     }
 
     .open-acc-holder {
