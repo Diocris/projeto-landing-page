@@ -43,6 +43,8 @@
     justify-items: center;
     align-items: end;
     padding: 32px;
+    justify-content: center;
+    align-items: end;
 }
 
 .eye-holder:hover {
@@ -80,8 +82,8 @@
 }
 
 .form-open-acc-holder input::placeholder {
-    color: white;
-    text-align: center;
+    color: #ddd8d8c2;
+
 }
 
 .form-oppen-scroller {
@@ -117,6 +119,7 @@
     border: none;
     position: relative;
     z-index: 3;
+    transform-origin: center;
 }
 
 
@@ -159,8 +162,12 @@
         width: calc(200px/3*2);
         height: calc(298px/3*2);
     }
+    .open-acc-button {
+        transform:scale(0.9);
+        -webkit-transform: scale(0.9);
+      }
+  }
 
-}
 
 @media screen and (max-width: 420px) {
     .eye-holder {
@@ -174,5 +181,8 @@
         width: calc(400px/2);
         height: calc(596px/2);
     }
-
+    .open-acc-button {
+        transform:scale(0.5);
+        -webkit-transform: scale(0.5);
+    }
 }
