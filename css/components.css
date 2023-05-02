@@ -1,26 +1,27 @@
-.bttn{
-        background-color: transparent;
-        width: fit-content;
-        padding: 8px 24px;
-        border: 1px solid #ffffff !important;
-        border-radius: 10px !important;
-        color: white !important;
-        display: inline-block !important;
-        flex-shrink: 1;
+.bttn {
+  background-color: transparent;
+  width: fit-content;
+  padding: 8px 24px;
+  border: 1px solid #ffffff !important;
+  border-radius: 10px !important;
+  color: white !important;
+  display: inline-block !important;
+  flex-shrink: 1;
 }
 
-.button-card{
-    width: 100% !important;
-    height: fit-content !important;
-    background-color: transparent !important;
-    border-bottom: 1px solid #ffffff !important;
-    color: white !important;
-    padding: 8px 24px;
-    flex-shrink: 1;
+.button-card {
+  width: 100% !important;
+  height: fit-content !important;
+  background-color: transparent !important;
+  border-bottom: 1px solid #ffffff !important;
+  color: #ffffff !important;
+  padding: 8px 24px;
+  flex-shrink: 1;
 }
 
 @media screen and (max-width: 768px) {
-    .bttn, .button-card{
-        padding: 4px 12px !important;
-    }
+  .bttn,
+  .button-card {
+    padding: 4px 12px !important;
+  }
 }
