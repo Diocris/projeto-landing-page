@@ -20,6 +20,7 @@ footer {
   width: fit-content;
   background: transparent;
   border: none;
+  text-decoration: none;color: #440D9B !important;
 }
 .social{
     width: 44px;

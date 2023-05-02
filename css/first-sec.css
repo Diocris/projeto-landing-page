@@ -1,27 +1,42 @@
 .first-section{
     display: grid;
     justify-items: center;
-}
-
-.first-sec-1content{
-    height: 30vh;
+    grid-template-rows: 10% 90%;
+    align-items: center;
+    height: fit-content;
 }
 .first-sec-row{
-    margin: 40px;
+    grid-template-rows: 1fr 1fr;
+    gap: 20px;
+}
+.first-sec-1content{
+    justify-content: center;
+    align-items: center;
+    height: 40vh;
+    min-height: 350px;
+    margin-top: 16px;
 }
 .first-sec-2content{
     height: 40vh;
     display: grid;
     align-content: center;
-    margin-top: 16px;
-    margin-bottom: 16px;
+    align-items: start;
+    text-align: start;
 }
 
-.first-sec-2content h2, .first-sec-2content p {
-text-align: left;
+.button-card-mobile{
+    height: fit-content;
+    background-color: unset;
+    border: none;
+    outline: unset;
+    border-bottom: 1px solid #ffffff;
 }
-
-
+.button-card-mobile:hover{
+    border-bottom: 2px solid #ffffff;
+}
+.button-holder-mobile{
+    justify-content: center !important;
+}
 .card-item{
     position: relative;
     width: 147px;
@@ -49,7 +64,7 @@ text-align: left;
     position: absolute;
     top: 0;
     left: 0;
-    transform: rotateY(240deg);
+    transform: rotateY(270deg);
     transition: 0.8s all;   
 }
 
@@ -70,6 +85,8 @@ text-align: left;
 
 .card-clicked .front-face{
     transform: rotateY(90deg);
+    scale: 1.2;
+    
 }
 .card-clicked .back-face{
     transform: rotateY(360deg);
@@ -106,9 +123,6 @@ text-align: left;
         height: 41vw;
     }
 
-    .first-sec-row{
-        margin-bottom: -20px;
-    }
     .first-section-desktop{
         display: none;
     }

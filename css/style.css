@@ -13,7 +13,6 @@ h6 {
   font-family: "Gotham" !important;
   font-style: normal !important;
   font-weight: 600 !important;
-  /* line-height: 3rem !important; */
   color: #E38C24 !important;
 }
 
@@ -22,6 +21,10 @@ header{
   z-index: 1;
   border-bottom: 1px solid #440D9B;
   background-color: #290A5E;
+}
+
+.nav-bar{
+  padding: 0.5em 2.5em;
 }
 
 p {
@@ -33,9 +36,10 @@ p {
 .holder{
   background-color: #250451;
     overflow: hidden;
-    padding: 0px 8%;
 }
-
+.holder:nth-child(3),.holder:nth-child(4),.holder:nth-child(5){
+  padding: 0px 7em !important;
+}
 .auto-change{
   color: #E38C24;
 }
@@ -43,6 +47,7 @@ p {
 .logo {
   width: 50%;
   min-width: 120px;
+  max-width: 200px;
   align-self: center;
 }
 
@@ -60,19 +65,20 @@ p {
   display: grid;
   box-sizing: border-box;
   justify-items: center;
-
 }
 
 .hero-content {
   box-sizing: border-box;
-  height: 110vh;
-  min-height: 800px !important;
-  display: inline-flex;
+    height: 110vh;
+    min-height: 800px !important;
+    display: inline-flex;
     justify-content: flex-start;
     flex-wrap: wrap;
     flex-direction: row;
     align-items: center;
-    padding: 0 !important;
+    position: relative;
+    z-index: 2;
+    padding: 0px 7em;
 }
 
 .fourth-section {
@@ -85,28 +91,23 @@ p {
   position: relative;
   bottom: 0px;
 }
-.cta-content{
-    position: relative;
-    z-index: 2;    
-    padding: 0
-}
+
 .div-text-cta {
   align-items: center;
   align-content: center;
   position: relative;
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
+  background-color: #440d9bb0;
   width: 100%;
+  border-radius: 20px;
 }
 .text-section-1 {
   z-index: 1;
-  padding: 8px;
-  border-radius: 10px;
+  border-radius: 20px;
+  padding: 1em 1em;
 }
 
 
 .main-card-holder{
-    height: 90vh;
     min-height: 700px;
  }
 
@@ -168,7 +169,7 @@ p {
  .card-teste{
     width: 200px !important;
     height: 298px !important;
-    border-radius: 10px;
+    border-radius: 20px;
  }
 
 .text-card{
@@ -179,7 +180,7 @@ p {
 
 
  .card-deck{
-    border-radius: 10px;
+    border-radius: 20px;
     transition: all 1s;
     transform-origin: center;
     width: 100% !important;
@@ -242,7 +243,6 @@ p {
 
 
  .cards-hero{
-  height:30vh;
   position: relative;
   transition: 2s all ease-out;
   display: grid;
@@ -279,24 +279,17 @@ p {
   justify-items: center
  }
 
- .deck-holder, .deck-text{
-  transform: translate(0, -5vh);
- }
- .deck-text{
-  padding-left: 10%;
- }
 
  .button-holder{
+  width: 100%;
   height: fit-content;
   z-index: 1;
  }
 
  .card-holder{
   height: 100%;
-  
+  padding: 1rem;
  }
-
-
 
 @media screen and (min-width: 768px) {
   h1,
@@ -307,6 +300,9 @@ p {
     font-size: 1.1rem !important;
     line-height: 24px !important;
   }
+  .nav-bar{
+      padding: 1em 8em !important;
+  }
 }
 @media (max-width: 992px){
   p {
@@ -314,11 +310,9 @@ p {
   }
 }
 @media screen and (max-width: 768px) {
-  .holder{
-    padding: unset !important;
-  }
+
   .hero-content{
-    height: 20vh !important;
+    padding: 0px !important;
   }
   .card-hero{
     width: calc(200px/2) !important;
@@ -328,11 +322,7 @@ p {
     justify-content: center;
     padding-top: 30%;
 }
-.deck-text{
-  padding-left: 0 !important;
 }
-
-  }
 
   @media screen and (max-width: 420px) {
     h1,
@@ -342,5 +332,8 @@ p {
     }
     p {
       font-size: 1rem !important;
+    }
+    h3{
+      font-size: calc(1.1rem + .4vw) !important;
     }
   }

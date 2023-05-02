@@ -1,12 +1,12 @@
 .bttn{
-        width: fit-content;
-        height: fit-content;
         background-color: transparent;
         width: fit-content;
-        padding: 8px;
+        padding: 8px 24px;
         border: 1px solid #ffffff !important;
         border-radius: 10px !important;
         color: white !important;
+        display: inline-block !important;
+        flex-shrink: 1;
 }
 
 .button-card{
@@ -15,5 +15,12 @@
     background-color: transparent !important;
     border-bottom: 1px solid #ffffff !important;
     color: white !important;
-    padding: 8px;
+    padding: 8px 24px;
+    flex-shrink: 1;
+}
+
+@media screen and (max-width: 420px) {
+    .bttn, .button-card{
+        padding: 4px 12px !important;
+    }
 }

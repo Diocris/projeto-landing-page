@@ -1,7 +1,17 @@
 # Diocris / Landing page project
 
-This minor project has been constroyed with HTML, CSS and JavaScript.
+Minor landing page interactive project.
+Used HTML, CSS and Javascript.
 
-Isn't totally done yet, needing some css adjusts and asset refine, also documentation.
+# Desktop
+![Screenshot](/screenshots/desktop-hero.png)
+![Screenshot](/screenshots/desktop-sec1.png)
+![Screenshot](/screenshots/desktop-sec2.png)
+![Screenshot](/screenshots/desktop-footer.png)
 
-![Screenshot](/assets/card-back.png)
+
+# Mobile
+![Screenshot](/screenshots/mobile-hero.png)
+![Screenshot](/screenshots/mobile-sec1.png)
+![Screenshot](/screenshots/mobile-sec2.png)
+![Screenshot](/screenshots/mobile-footer.png)
