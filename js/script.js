@@ -51,7 +51,7 @@ window.addEventListener("load", () => {
             deckHolder.append(newCard)
         }
     }
-    cardCreator(16)
+    cardCreator(8)
 
     //? set how many cards is going to be created - end
 
@@ -60,10 +60,10 @@ window.addEventListener("load", () => {
 
     const spreadedCards = Array.from(selectAll(".card-hero"))
 
-    function sortPosHero(elem) {
+    function sortPosHero(elem, divisor) {
         for (let i = 0; i < elem.length; i++) {
-            const limitX = Math.random() * (heroXPositive - heroXNegative) + heroXNegative + "px"
-            const limitY = (Math.random() * (heroYNegativeMax - heroYNegativeMin) + heroYNegativeMin) + "px"
+            const limitX = (Math.random() * (heroXPositive - heroXNegative) + heroXNegative) / divisor + "px"
+            const limitY = ((Math.random() * (heroYNegativeMax - heroYNegativeMin) + heroYNegativeMin)) / divisor + "px"
 
             const rotate = Math.random() * 360 + "deg"
             elem[i].style.transform = `translate(${limitX},${limitY}) rotate(${rotate})`
@@ -71,104 +71,113 @@ window.addEventListener("load", () => {
         }
 
     }
-    sortPosHero(spreadedCards)
+
 
     //? set new POS to the cards - end
 
     //-- Set cards hero randomly position - end
 
     //-- Set functions to animation works - start
+    const screenWidthDesktop = window.matchMedia("(min-width: 769px)")
+    window.addEventListener("resize", () => {
+        match(screenWidthDesktop)
+    })
 
     const primaryButton = select(".primary-button")
-    const windowScroll = select(".nav-bar").getBoundingClientRect().height + select(".hero").getBoundingClientRect().height
-    const body = select('body')
-    const nav = select(".nav-bar")
-    let navTop;
-
-    //? First animation function, when button is clicked or when user does Y scroll, actives, givng the card the original/initial position, also after this first step, removes those initials functions and adds the second part functions for animation.
 
 
-    function animScroll(e) {
-        navTop = nav.getBoundingClientRect().y
+    if (screenWidthDesktop.matches) {
+        sortPosHero(spreadedCards, 1)
 
-        if (navTop <= -100 && navTop >= -(select(".hero").getBoundingClientRect().height / 2)) {
+        const windowScroll = select(".nav-bar").getBoundingClientRect().height + select(".hero").getBoundingClientRect().height
+        const body = select('body')
+        const nav = select(".nav-bar")
+        let navTop;
+
+        //? First animation function, when button is clicked or when user does Y scroll, actives, givng the card the original/initial position, also after this first step, removes those initials functions and adds the second part functions for animation.
+
+
+        function animScroll(e) {
+            navTop = nav.getBoundingClientRect().y
+
+            if (navTop <= -100 && navTop >= -(select(".hero").getBoundingClientRect().height / 2)) {
+                body.style.overflow = "hidden"
+                setTimeout(() => {
+                    body.style.overflow = "initial"
+                }, 2000);
+                for (let i = 0; i < spreadedCards.length; i++) {
+                    spreadedCards[i].style.transform = `translate(0,0)`
+                }
+                window.removeEventListener("scroll", animScroll)
+                window.addEventListener("scroll", cardMove)
+            }
+        }
+
+        //
+        //? first animation function - end
+
+        //? second animation function, after a second click or a little more scroll Y, send the ammounted deck to the first section, after a delay also guides the user window to have this section con his 100% viewport, also removing itself avoiding visual and user bugs.
+
+        function cardMove() {
+            navTop = nav.getBoundingClientRect().y
+            if (navTop <= -200) {
+                body.style.overflow = "hidden"
+                setTimeout(() => {
+                    for (let i = 0; i < spreadedCards.length; i++) {
+                        spreadedCards[i].style.transition = `all 400ms ease-in`
+                        spreadedCards[i].style.transform = `translate(0,700px)`
+                    }
+                }, 100);
+
+                setTimeout(() => {
+                    for (let i = 0; i < spreadedCards.length; i++) {
+                        spreadedCards[i].style.display = "none"
+                    }
+
+                    window.removeEventListener("scroll", cardMove)
+                    setTimeout(() => {
+                        window.scrollTo(0, windowScroll)
+                        setTimeout(() => {
+                            body.style.overflow = "initial"
+                        }, 200);
+                    }, 600);
+                }, 400);
+            }
+        }
+
+        //? second function - end
+        //? click anim function - start
+
+        function animClick() {
+            window.removeEventListener("scroll", animScroll)
             body.style.overflow = "hidden"
-            setTimeout(() => {
-                body.style.overflow = "initial"
-            }, 2000);
             for (let i = 0; i < spreadedCards.length; i++) {
+                spreadedCards[i].style.transition = "all 400ms linear"
                 spreadedCards[i].style.transform = `translate(0,0)`
             }
-            window.removeEventListener("scroll", animScroll)
-            window.addEventListener("scroll", cardMove)
-        }
-    }
 
-    //
-    //? first animation function - end
-
-    //? second animation function, after a second click or a little more scroll Y, send the ammounted deck to the first section, after a delay also guides the user window to have this section con his 100% viewport, also removing itself avoiding visual and user bugs.
-
-    function cardMove() {
-        navTop = nav.getBoundingClientRect().y
-        if (navTop <= -200) {
-            body.style.overflow = "hidden"
             setTimeout(() => {
                 for (let i = 0; i < spreadedCards.length; i++) {
                     spreadedCards[i].style.transition = `all 400ms ease-in`
-                    spreadedCards[i].style.transform = `translate(0,700px)`
+                    spreadedCards[i].style.transform = `translate(0,1000px)`
                 }
-            }, 100);
+                body.style.overflow = "initial"
 
-            setTimeout(() => {
-                for (let i = 0; i < spreadedCards.length; i++) {
-                    spreadedCards[i].style.display = "none"
-                }
-
-                window.removeEventListener("scroll", cardMove)
                 setTimeout(() => {
+                    for (let i = 0; i < spreadedCards.length; i++) {
+
+                        spreadedCards[i].style.display = "none"
+                    }
+
                     window.scrollTo(0, windowScroll)
-                    setTimeout(() => {
-                        body.style.overflow = "initial"
-                    }, 200);
-                }, 600);
-            }, 400);
-        }
-    }
+                }, 800);
+            }, 600);
 
-    //? second function - end
-    //? click anim function - start
-
-    function animClick() {
-        window.removeEventListener("scroll", animScroll)
-        body.style.overflow = "hidden"
-        for (let i = 0; i < spreadedCards.length; i++) {
-            spreadedCards[i].style.transition = "all 400ms linear"
-            spreadedCards[i].style.transform = `translate(0,0)`
         }
 
-        setTimeout(() => {
-            for (let i = 0; i < spreadedCards.length; i++) {
-                spreadedCards[i].style.transition = `all 400ms ease-in`
-                spreadedCards[i].style.transform = `translate(0,1000px)`
-            }
-            body.style.overflow = "initial"
-
-            setTimeout(() => {
-                for (let i = 0; i < spreadedCards.length; i++) {
-
-                    spreadedCards[i].style.display = "none"
-                }
-
-                window.scrollTo(0, windowScroll)
-            }, 800);
-        }, 600);
-
+        window.addEventListener("scroll", animScroll)
+        primaryButton.addEventListener("click", animClick)
     }
-
-    window.addEventListener("scroll", animScroll)
-    primaryButton.addEventListener("click", animClick)
-
     //-- Set functions to animation works - end
 
     //! Hero end
@@ -187,6 +196,7 @@ window.addEventListener("load", () => {
     })
     function match(X) {
         if (X.matches) {
+            sortPosHero(spreadedCards, 3)
             firstSection.style.display = "grid"
             firstSectionDesktop.style.display = "none"
         } else {
@@ -194,7 +204,14 @@ window.addEventListener("load", () => {
             firstSectionDesktop.style.display = "grid"
         }
         primaryButton.addEventListener("click", () => {
-            window.scrollTo(0, select(".text-section-1").getBoundingClientRect().top)
+            window.scrollTo(0, select(".first-section").getBoundingClientRect().top)
+            for (let i = 0; i < spreadedCards.length; i++) {
+                spreadedCards[i].style.transition = "all 400ms linear"
+                spreadedCards[i].style.transform = `translate(0,0)`
+
+
+            }
+
         })
     }
 
@@ -207,9 +224,9 @@ window.addEventListener("load", () => {
     //? First section mobile function to change the text according to the item who is beeing hovered.
 
 
-    const cards = document.getElementsByClassName('card-item')
-    const cardName = document.getElementById("card-name")
-    const cardDetails = document.getElementById("card-details")
+    const cards = select(".card-item")
+    const cardName = select(".card-name")
+    const cardDetails = select(".card-details")
     const buttonCardMobile = selectAll(".button-card-mobile")
     const cardMobile = selectAll(".card-item")
     const frontFaceMobile = selectAll(".front-face")
@@ -218,15 +235,29 @@ window.addEventListener("load", () => {
     function mobileFirstSec(array) {
         for (let i = 0; i < array.length; i++) {
             array[i].addEventListener("click", () => {
+
                 buttonCardMobile[i].style.borderBottom = `2px solid white !important`
+
                 if (!cardMobile[i].classList.contains("card-clicked")) {
-                    frontFaceMobile[i].style.transition = "all 400ms"
+
+                    frontFaceMobile[i].style.transition = "all 400ms linear"
+                    backFaceMobile[i].style.transition = "all 400ms 400ms linear"
+
+
                     for (let k = 0; k < 3; k++) {
                         cardMobile[k].classList.remove("card-clicked")
+                        setTimeout(() => {
+                            frontFaceMobile[i].style.transition = "all 400ms 400ms linear"
+                            backFaceMobile[i].style.transition = "all 400ms linear"
+                        }, 800);
+
                     }
+
                     cardMobile[i].classList.toggle("card-clicked")
-                    backFaceMobile[i].style.transition = "all 400ms 400ms"
+
+
                 }
+
             })
         }
         for (let i = 0; i < array.length; i++) {
@@ -409,7 +440,7 @@ window.addEventListener("load", () => {
         })
     }
 
-    for (let i = 1; i < previousBttn.length; i++) {
+    for (let i = 0; i < previousBttn.length; i++) {
 
         previousBttn[i].addEventListener("click", (e) => {
             sliders[i + 1].classList.add("open-acc-desactived")

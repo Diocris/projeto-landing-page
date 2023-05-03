@@ -6,22 +6,24 @@
   height: fit-content;
 }
 .first-sec-row {
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 40% 60%;
   gap: 20px;
 }
 .first-sec-1content {
   justify-content: center;
   align-items: center;
-  height: 40vh;
+  height: 35vh;
   min-height: 350px;
   margin-top: 16px;
 }
 .first-sec-2content {
-  height: 40vh;
+  height: 35vh;
+  min-height: 350px;
   display: grid;
   align-content: center;
   align-items: start;
   text-align: start;
+  padding: 2rem;
 }
 
 .button-card-mobile {
