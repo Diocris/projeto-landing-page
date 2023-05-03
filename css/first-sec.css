@@ -4,23 +4,22 @@
   grid-template-rows: 10% 90%;
   align-items: center;
   height: fit-content;
+  gap: 1rem;
 }
 .first-sec-row {
   grid-template-rows: 40% 60%;
   gap: 20px;
+  justify-items: center;
 }
 .first-sec-1content {
   justify-content: center;
   align-items: center;
-  height: 35vh;
-  min-height: 350px;
-  margin-top: 16px;
+  margin-top: 4rem;
 }
 .first-sec-2content {
-  height: 35vh;
   min-height: 350px;
   display: grid;
-  align-content: center;
+  align-content: stretch;
   align-items: start;
   text-align: start;
   padding: 2rem;
@@ -31,10 +30,10 @@
   background-color: unset;
   border: none;
   outline: unset;
-  border-bottom: 1px solid #ffffff;
+  border-bottom: 1px solid #440d9b;
 }
 .button-card-mobile:hover {
-  border-bottom: 2px solid #ffffff;
+  border-bottom: 2px solid #440d9b;
 }
 .button-holder-mobile {
   justify-content: center !important;
@@ -67,45 +66,39 @@
   top: 0;
   left: 0;
   transform: rotateY(270deg);
-  /* transition: 0.4s 0.4s all; */
-}
-
-.card-item:hover {
-  width: 210px;
-  height: 298px;
-}
-
-.card-item:nth-child(2) {
-  order: 2;
-  translate: 0px -25px;
-}
-
-.card-item:nth-child(2):hover {
-  translate: 0px -50px;
-  z-index: 1;
-}
-
-.card-clicked .front-face {
-  transform: rotateY(90deg);
-  scale: 1.2;
-}
-.card-clicked .back-face {
-  transform: rotateY(360deg);
 }
 .card-item:nth-child(1) {
   order: 0;
   rotate: -20deg;
 }
-.card-item:nth-child(1):hover {
-  translate: -10px -20px;
-  z-index: 1;
+.card-item:nth-child(2) {
+  order: 2;
+  translate: 0px -25px;
 }
-
 .card-item:nth-child(3) {
   order: 3;
   rotate: 20deg;
 }
-.card-item:nth-child(3):hover {
+
+.card-clicked {
+  scale: 1.2;
+}
+.card-clicked .front-face {
+  transform: rotateY(90deg);
+}
+.card-clicked .back-face {
+  transform: rotateY(360deg);
+}
+
+.card-clicked.card-item:nth-child(1) {
+  translate: -10px -20px;
+  z-index: 1;
+}
+.card-clicked.card-item:nth-child(2) {
+  translate: 0px -50px;
+  z-index: 1;
+}
+.card-clicked.card-item:nth-child(3) {
   translate: 10px -20px;
   z-index: 1;
 }
@@ -113,17 +106,19 @@
 @media screen and (max-width: 768px) {
   .card-item {
     position: relative;
-    width: 25vw;
-    height: 37.5vw;
+    width: calc(200px / 2) !important;
+    height: calc(298px / 2) !important;
     transition: 1s all;
-  }
-
-  .card-item:hover {
-    width: 28vw;
-    height: 41vw;
   }
 
   .first-section-desktop {
     display: none;
+  }
+}
+
+@media screen and (min-width: 462px) {
+  .first-sec-2content {
+    min-width: 80vw;
+    max-width: 80vw;
   }
 }

@@ -4,7 +4,7 @@
   padding: 8px 24px;
   border: 1px solid #ffffff !important;
   border-radius: 10px !important;
-  color: white !important;
+  color: #ffffff !important;
   display: inline-block !important;
   flex-shrink: 1;
 }
@@ -13,8 +13,8 @@
   width: 100% !important;
   height: fit-content !important;
   background-color: transparent !important;
-  border-bottom: 1px solid #ffffff !important;
-  color: #ffffff !important;
+  border-bottom: 1px solid #440d9b !important;
+  color: #440d9b !important;
   padding: 8px 24px;
   flex-shrink: 1;
 }
