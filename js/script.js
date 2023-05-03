@@ -224,9 +224,9 @@ window.addEventListener("load", () => {
     //? First section mobile function to change the text according to the item who is beeing hovered.
 
 
-    const cards = document.getElementsByClassName('card-item')
-    const cardName = document.getElementById("card-name")
-    const cardDetails = document.getElementById("card-details")
+    const cards = select(".card-item")
+    const cardName = select(".card-name")
+    const cardDetails = select(".card-details")
     const buttonCardMobile = selectAll(".button-card-mobile")
     const cardMobile = selectAll(".card-item")
     const frontFaceMobile = selectAll(".front-face")
@@ -440,7 +440,7 @@ window.addEventListener("load", () => {
         })
     }
 
-    for (let i = 1; i < previousBttn.length; i++) {
+    for (let i = 0; i < previousBttn.length; i++) {
 
         previousBttn[i].addEventListener("click", (e) => {
             sliders[i + 1].classList.add("open-acc-desactived")

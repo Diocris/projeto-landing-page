@@ -154,8 +154,8 @@
   }
 
   .open-acc-holder {
-    width: calc(200px / 3 * 2);
-    height: calc(298px / 3 * 2);
+    width: calc(400px / 3 * 2);
+    height: calc(596px / 3 * 2);
   }
   .open-acc-button {
     transform: scale(0.75);
