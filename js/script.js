@@ -87,6 +87,7 @@ window.addEventListener("load", () => {
 
 
     if (screenWidthDesktop.matches) {
+
         sortPosHero(spreadedCards, 1)
 
         const windowScroll = select(".nav-bar").getBoundingClientRect().height + select(".hero").getBoundingClientRect().height
@@ -224,7 +225,7 @@ window.addEventListener("load", () => {
     //? First section mobile function to change the text according to the item who is beeing hovered.
 
 
-    const cards = select(".card-item")
+    const cards = selectAll(".card-item")
     const cardName = select(".card-name")
     const cardDetails = select(".card-details")
     const buttonCardMobile = selectAll(".button-card-mobile")
@@ -236,7 +237,7 @@ window.addEventListener("load", () => {
         for (let i = 0; i < array.length; i++) {
             array[i].addEventListener("click", () => {
 
-                buttonCardMobile[i].style.borderBottom = `2px solid white !important`
+                buttonCardMobile[i].style.borderBottom = `2px solid #440d9b !important`
 
                 if (!cardMobile[i].classList.contains("card-clicked")) {
 

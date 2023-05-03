@@ -1,7 +1,7 @@
 .second-section {
   display: grid;
   margin: 0 auto;
-  margin-top: 10vh;
+  margin: 4rem 0px;
   grid-template-rows: 1fr;
 }
 
@@ -17,11 +17,10 @@
 
 .text-second-section {
   display: inline-flex;
-  padding: 2rem;
+  padding: 0px 2rem;
 }
 
 .second-row {
-  margin: 16px 0px;
   display: grid;
   justify-content: center;
   justify-items: center;
@@ -50,7 +49,7 @@
 
 .eye-holder:hover {
   border-radius: 20px;
-  border: 1px solid #131313;
+  border: 1px solid #440d9b;
 }
 
 .form-open-acc {
@@ -70,13 +69,13 @@
   width: 80%;
   border: none;
   background-color: unset;
-  border-bottom: 1px solid #ffffff;
+  border-bottom: 1px solid #440d9b;
   outline: unset;
   color: #e38c24;
 }
 
 .form-open-acc-holder input:focus-within {
-  border-bottom: 2px solid #ffffff;
+  border-bottom: 2px solid #440d9b;
 }
 
 .form-open-acc-holder input::placeholder {
@@ -149,7 +148,7 @@
     width: calc(400px / 3 * 2);
     height: calc(596px / 3 * 2);
     border-radius: 10px;
-    border: 1px solid #131313;
+    border: 1px solid #440d9b;
     padding: 2rem;
   }
 

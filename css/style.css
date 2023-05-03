@@ -22,7 +22,7 @@ header {
 }
 
 .nav-bar {
-  padding: 0.5em 1em;
+  padding: 1rem 1.5rem;
 }
 
 p {
@@ -65,6 +65,7 @@ p {
   display: grid;
   box-sizing: border-box;
   justify-items: center;
+  padding: 2rem;
 }
 
 .hero-content {
@@ -256,8 +257,7 @@ p {
   z-index: -5;
 }
 
-.card-hero,
-.card-unique {
+.card-hero {
   content: url(/assets/card-back.png);
 }
 
@@ -306,6 +306,9 @@ p {
   }
   .nav-bar {
     padding: 1em 5em !important;
+  }
+  .card-unique {
+    content: url(/assets/card-back.png);
   }
 }
 @media (max-width: 992px) {
