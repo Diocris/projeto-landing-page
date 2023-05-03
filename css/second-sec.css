@@ -17,6 +17,7 @@
 
 .text-second-section {
   display: inline-flex;
+  padding: 2rem;
 }
 
 .second-row {

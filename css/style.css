@@ -256,8 +256,22 @@ p {
   z-index: -5;
 }
 
-.card-hero {
+.card-hero,
+.card-unique {
   content: url(/assets/card-back.png);
+}
+
+.rotate-card {
+  animation: rotating 6s infinite linear;
+  transform-origin: center;
+}
+@keyframes rotating {
+  0% {
+    rotate: 0deg;
+  }
+  100% {
+    rotate: 360deg;
+  }
 }
 
 .deck-holder {
@@ -303,7 +317,8 @@ p {
   .hero-content {
     padding: 0px !important;
   }
-  .card-hero {
+  .card-hero,
+  .card-unique {
     width: calc(200px / 2) !important;
     height: calc(298px / 2) !important;
   }
@@ -326,6 +341,6 @@ p {
     font-size: 1rem !important;
   }
   h3 {
-    font-size: calc(1.1rem + 0.4vw) !important;
+    font-size: calc(1rem + 0.4vw) !important;
   }
 }
