@@ -224,8 +224,6 @@ window.addEventListener("load", () => {
 
     //? First section mobile function to change the text according to the item who is beeing hovered.
 
-
-    const cards = selectAll(".card-item")
     const cardName = select(".card-name")
     const cardDetails = select(".card-details")
     const buttonCardMobile = selectAll(".button-card-mobile")
@@ -237,10 +235,10 @@ window.addEventListener("load", () => {
         for (let i = 0; i < array.length; i++) {
             array[i].addEventListener("click", () => {
 
-                buttonCardMobile[i].style.borderBottom = `2px solid #440d9b !important`
+
 
                 if (!cardMobile[i].classList.contains("card-clicked")) {
-
+                    buttonCardMobile[i].focus()
                     frontFaceMobile[i].style.transition = "all 400ms linear"
                     backFaceMobile[i].style.transition = "all 400ms 400ms linear"
 
@@ -271,7 +269,7 @@ window.addEventListener("load", () => {
 
 
     mobileFirstSec(buttonCardMobile)
-    mobileFirstSec(cards)
+    mobileFirstSec(cardMobile)
 
     //-- First desktop -- MOBILE end
 
@@ -467,7 +465,7 @@ window.addEventListener("load", () => {
         checkValue = openSign.value.toLowerCase()
         if (countClickFake === 0 && checkValue !== "gemini" || checkValue !== "gemeos" || checkValue !== "gêmeos") {
             openSign.value = ""
-            openSign.placeholder = "Not a gemini"
+            openSign.placeholder = "i'm looking for geminis only"
         }
         if (countClickFake >= 2 || checkValue === "gemini" || checkValue === "gemeos" || checkValue === "gêmeos") {
             alert("I'm sorry to say, the universe has other plans for you. This form is faker than a politician promise, my tarot cards are saying 'not today, my friend.' Even if you're a lovely Gemini, I'm afraid I can't work my magic on this one. ")
